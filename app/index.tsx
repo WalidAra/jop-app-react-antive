@@ -1,36 +1,32 @@
-import React from "react";
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
-import { COLORS, icons, images, SIZES } from "../constants/";
-import { useRouter } from "expo-router";
-import Welcome from "@/components/components/home/welcome/Welcome";
-import PopularJobs from "@/components/components/home/popular/PopularJobs";
-import NearByJobs from "@/components/components/home/nearby/NearByJobs";
+import Login from "@/components/components/log/Login";
+import { COLORS } from "@/constants";
+import ProviderRedux from "@/redux/Provider";
+import currentStore from "@/redux/store/store";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useEffect } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Provider } from "react-redux";
 
 export default function App() {
-  const router = useRouter();
+
+  useEffect(() => {
+    // Store a value
+    AsyncStorage.setItem("name", "Alice");
+
+    // Retrieve a value
+    AsyncStorage.getItem("name").then((value) => {
+      console.log(value); // Alice
+    });
+
+    // Remove a value
+    AsyncStorage.removeItem("name");
+  }, [])
+  
   return (
-    <SafeAreaView style={styles.index}>
-      <ScrollView>
-        <View
-          style={{
-            flex: 1,
-            padding: SIZES.medium,
-          }}
-        >
-          <View style={{ flex: 1 }}>
-            <Welcome />
-          </View>
-          <PopularJobs />
-          <NearByJobs />
-        </View>
-      </ScrollView>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
+      <Provider store={currentStore}>
+        <Login />
+      </Provider>
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  index: {
-    flex: 1,
-    backgroundColor: COLORS.lightWhite,
-  },
-});

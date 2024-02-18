@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useRouter, useLocalSearchParams, Stack } from "expo-router";
+import { useRouter, useLocalSearchParams, Stack, Link } from "expo-router";
 import React, { useEffect } from "react";
 import { ScrollView } from "react-native";
 import { Text, View } from "react-native";
@@ -33,10 +33,8 @@ export default function JobDetails() {
           headerTitleStyle: { color: "black" },
           headerStyle: { backgroundColor: "white" },
           headerTitle: "",
-          headerShadowVisible: false,
-          headerLeft: () => {
-            return <Text>back nigga</Text>;
-          },
+          headerShadowVisible: true,
+         
         }}
       />
       <Text style={{ color: "black" }}>here niggas {id} </Text>

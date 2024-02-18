@@ -54,6 +54,13 @@ function RootLayoutNav() {
           name="index"
           options={{
             headerStyle: { backgroundColor: COLORS.lightWhite },
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="home/index"
+          options={{
+            headerStyle: { backgroundColor: COLORS.lightWhite },
             headerShown: true,
             presentation: "modal",
             headerShadowVisible: false,
