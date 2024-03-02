@@ -1,6 +1,5 @@
 import Login from "@/components/components/log/Login";
 import { COLORS } from "@/constants";
-import ProviderRedux from "@/redux/Provider";
 import currentStore from "@/redux/store/store";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useEffect } from "react";
@@ -20,8 +19,8 @@ export default function App() {
 
     // Remove a value
     AsyncStorage.removeItem("name");
-  }, [])
-  
+  }, []);
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
       <Provider store={currentStore}>

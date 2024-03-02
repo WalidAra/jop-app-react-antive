@@ -13,6 +13,7 @@ import { Redirect, useRouter } from "expo-router";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store/store";
+import GoogleAuthBtn from "./GoogleAuthBtn";
 
 export default function Login() {
   const router = useRouter();
@@ -37,9 +38,15 @@ export default function Login() {
 
             <TextInput style={styles.input} placeholder="enter smh" />
 
-            <TouchableOpacity onPress={handlePress} style={styles.loginButton}>
-              <Text style={styles.loginButtonText}>Login</Text>
-            </TouchableOpacity>
+            <View style={{ gap: 10 }}>
+              <TouchableOpacity
+                onPress={handlePress}
+                style={styles.loginButton}
+              >
+                <Text style={styles.loginButtonText}>Login</Text>
+              </TouchableOpacity>
+              {/* <GoogleAuthBtn /> */}
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>

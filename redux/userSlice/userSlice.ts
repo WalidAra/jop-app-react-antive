@@ -5,7 +5,7 @@ type Props = {
 };
 
 const initVar: Props = {
-  isUser: true,
+  isUser: false,
 };
 
 const userSlice = createSlice({
